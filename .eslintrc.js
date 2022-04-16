@@ -12,11 +12,11 @@ module.exports = {
   rules: {
     "no-plusplus": "off",
     "no-restricted-syntax": "off",
+    "disable-next-line": "true",
     "lines-between-class-members": [
       "error",
       "always",
       { exceptAfterSingleLine: true },
     ],
   },
-  "import/extensions": [{ js: "always" }],
 };
