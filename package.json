@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
     "@types/jest": "^27.4.1",
     "eslint": "^8.13.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -22,5 +23,14 @@
     "husky": "^7.0.0",
     "jest": "^27.5.1",
     "sass": "^1.50.0"
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "plugins": [
+          "@babel/plugin-transform-modules-commonjs"
+        ]
+      }
+    }
   }
 }
