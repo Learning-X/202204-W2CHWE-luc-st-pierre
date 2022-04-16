@@ -4,11 +4,15 @@
 // - dead cell with exactly 3 live neighbors becomes a live cell
 
 export default class Grid {
-  rowsCells = 10;
-  columnsCells = 10;
+  count;
+  rowsCells;
+  columnsCells;
+  cellSize = 60;
   multiDimentionalArray = [];
 
-  constructor() {
+  constructor(count) {
+    this.rowsCells = count;
+    this.columnsCells = count;
     this.gridGenerator();
   }
 
@@ -17,7 +21,7 @@ export default class Grid {
       this.multiDimentionalArray[i] = [];
 
       for (let j = 0; j < this.columnsCells; j++) {
-        this.multiDimentionalArray[i][j] = 0;
+        this.multiDimentionalArray[i][j] = [];
       }
     }
     return this.multiDimentionalArray;
@@ -30,6 +34,36 @@ export default class Grid {
       for (let j = 0; j < gridCell[i].length; j++) {
         gridCell[i][j] = Math.random() > 0.5 ? 1 : 0;
       }
+    }
+  }
+
+  drawCellsOnCanvas(ctx) {
+    const grid = this.multiDimentionalArray;
+
+    if (ctx) {
+      grid.forEach((row, x) => {
+        row.forEach((cell, y) => {
+          ctx.strokeRect(
+            x * this.cellSize,
+            y * this.cellSize,
+            this.cellSize,
+            this.cellSize
+          );
+
+          ctx.fillRect(
+            x * this.cellSize,
+            y * this.cellSize,
+            this.cellSize,
+            this.cellSize
+          );
+
+          if (cell) {
+            ctx.fillStyle = "black";
+          } else {
+            ctx.fillStyle = "white";
+          }
+        });
+      });
     }
   }
 }
