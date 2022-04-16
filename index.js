@@ -3,10 +3,6 @@
 // - live cell with more than 3 live neighbors dies
 // - dead cell with exactly 3 live neighbors becomes a live cell
 
-const canvas = document.querySelector("#grid");
-const ctx = canvas.getContext("2d");
-console.log(ctx);
-
 class Grid {
   rowsCells = 10;
   columnsCells = 10;
@@ -25,4 +21,4 @@ class Grid {
 }
 
 const grid = new Grid();
-// console.table(grid.gridGenerator());
+grid.gridGenerator();
