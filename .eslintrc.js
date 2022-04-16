@@ -12,7 +12,7 @@ module.exports = {
   rules: {
     "no-plusplus": "off",
     "no-restricted-syntax": "off",
-    "disable-next-line": "true",
+    "disable-next-line": "off",
     "lines-between-class-members": [
       "error",
       "always",
