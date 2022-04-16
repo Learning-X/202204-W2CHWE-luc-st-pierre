@@ -8,6 +8,10 @@ export default class Grid {
   columnsCells = 10;
   multiDimentionalArray = [];
 
+  constructor() {
+    this.gridGenerator();
+  }
+
   gridGenerator() {
     for (let i = 0; i < this.rowsCells; i++) {
       this.multiDimentionalArray[i] = [];
@@ -17,5 +21,15 @@ export default class Grid {
       }
     }
     return this.multiDimentionalArray;
+  }
+
+  generateStateCells() {
+    const gridCell = this.multiDimentionalArray;
+
+    for (let i = 0; i < gridCell.length; i++) {
+      for (let j = 0; j < gridCell[i].length; j++) {
+        gridCell[i][j] = Math.random() > 0.5 ? 1 : 0;
+      }
+    }
   }
 }
