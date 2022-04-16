@@ -21,5 +21,4 @@ class Grid {
 }
 
 const grid = new Grid();
-
 console.table(grid.gridGenerator());
