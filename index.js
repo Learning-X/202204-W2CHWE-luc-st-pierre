@@ -3,19 +3,23 @@
 // - live cell with more than 3 live neighbors dies
 // - dead cell with exactly 3 live neighbors becomes a live cell
 
-const gridGenerator = () => {
-  const rowsCells = 10;
-  const columnsCells = 10;
-  const multiDimentionalArray = [];
+class Grid {
+  rowsCells = 10;
+  columnsCells = 10;
+  multiDimentionalArray = [];
 
-  for (let i = 0; i < rowsCells; i++) {
-    multiDimentionalArray[i] = [];
+  gridGenerator() {
+    for (let i = 0; i < this.rowsCells; i++) {
+      this.multiDimentionalArray[i] = [];
 
-    for (let j = 0; j < columnsCells; j++) {
-      multiDimentionalArray[i][j] = 0;
+      for (let j = 0; j < this.columnsCells; j++) {
+        this.multiDimentionalArray[i][j] = 0;
+      }
     }
+    return this.multiDimentionalArray;
   }
-  return multiDimentionalArray;
-};
+}
 
-console.table(gridGenerator());
+const grid = new Grid();
+
+console.table(grid.gridGenerator());
