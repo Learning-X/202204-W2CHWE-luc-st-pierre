@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "watch": "sass sass/style.scss css/style.css --watch",
+    "compile-sass": "sass sass/style.scss css/style.css",
     "test": "jest --verbose",
     "jestwatch": "jest --watchall --verbose",
     "prepare": "husky install"
@@ -18,6 +20,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "husky": "^7.0.0",
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "sass": "^1.50.0"
   }
 }
