@@ -9,10 +9,10 @@ export default class Game {
   cell;
   resolution;
 
-  constructor(rows, cols, resolution) {
+  constructor(rows, cols) {
     this.rows = rows;
     this.cols = cols;
-    this.cell = new Cell(resolution);
+    // this.cell = new Cell(resolution);
     this.populateGrid(cols, rows);
   }
 
@@ -27,16 +27,11 @@ export default class Game {
   }
 
   generateStateCells(ctx, resolution) {
-    const gridCell = this.grid;
-
-    for (let i = 0; i < gridCell.length; i++) {
-      for (let j = 0; j < gridCell[i].length; j++) {
-        const cell = new Cell(ctx, resolution, j, i);
-        gridCell[i][j] = cell.drawCells();
+    for (let i = 0; i < this.rows; i++) {
+      for (let j = 0; j < this.cols; j++) {
+        this.grid[i][j] = new Cell(ctx, resolution, j, i);
       }
     }
-
-    this.grid = gridCell;
     return this.grid;
   }
 
