@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 
-export default class Grid {
+export default class Game {
   grid = [];
   rows;
   cols;
