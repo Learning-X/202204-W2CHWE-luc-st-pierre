@@ -8,6 +8,7 @@ export default class Cell {
     this.ctx = ctx;
     this.x = i;
     this.y = j;
+    this.drawCells();
   }
 
   drawCells() {
