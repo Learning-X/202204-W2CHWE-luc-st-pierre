@@ -1,13 +1,18 @@
 /* eslint-disable import/extensions */
 
+import Cell from "./cell.js";
+
 export default class Game {
   grid = [];
   rows;
   cols;
+  cell;
+  resolution;
 
-  constructor(rows, cols) {
-    this.cols = cols;
+  constructor(rows, cols, resolution) {
     this.rows = rows;
+    this.cols = cols;
+    this.cell = new Cell(resolution);
     this.populateGrid(cols, rows);
   }
 
@@ -21,39 +26,21 @@ export default class Game {
     }
   }
 
-  generateStateCells(cell) {
+  generateStateCells(ctx, resolution) {
     const gridCell = this.grid;
 
     for (let i = 0; i < gridCell.length; i++) {
       for (let j = 0; j < gridCell[i].length; j++) {
-        gridCell[i][j] = cell.stateCells();
+        const cell = new Cell(ctx, resolution, j, i);
+        gridCell[i][j] = cell.drawCells();
       }
     }
-    return gridCell;
+
+    this.grid = gridCell;
+    return this.grid;
   }
 
-  drawCellsOnCanvas(ctx, cellSize) {
-    const { grid } = this;
-
-    if (ctx) {
-      grid.forEach((row, x) => {
-        row.forEach((cell, y) => {
-          ctx.strokeRect(x * cellSize, y * cellSize, cellSize, cellSize);
-
-          ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
-
-          if (cell) {
-            ctx.fillStyle = "black";
-          } else {
-            ctx.fillStyle = "white";
-          }
-        });
-      });
-    }
-  }
-
-  gameInit(cell, ctx, cellSize) {
-    this.generateStateCells(cell);
-    this.drawCellsOnCanvas(ctx, cellSize);
+  gameInit(ctx, resolution) {
+    this.generateStateCells(ctx, resolution);
   }
 }

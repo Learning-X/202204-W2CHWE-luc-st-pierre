@@ -1,13 +1,36 @@
 export default class Cell {
-  cellSize = 60;
   isAlive;
+  resolution;
 
-  constructor(cellSize) {
-    this.cellSize = cellSize;
+  constructor(ctx, resolution, i, j) {
+    this.isAlive = Math.random() > 0.5 ? 1 : 0;
+    this.resolution = resolution;
+    this.ctx = ctx;
+    this.x = i;
+    this.y = j;
   }
 
-  stateCells() {
-    this.isAlive = Math.random() > 0.5 ? 1 : 0;
-    return this.isAlive;
+  drawCells() {
+    if (this.ctx) {
+      this.ctx.strokeRect(
+        this.x * this.resolution,
+        this.y * this.resolution,
+        this.resolution,
+        this.resolution
+      );
+
+      this.ctx.fillRect(
+        this.x * this.resolution,
+        this.y * this.resolution,
+        this.resolution,
+        this.resolution
+      );
+
+      if (this.isAlive) {
+        this.ctx.fillStyle = "black";
+      } else {
+        this.ctx.fillStyle = "white";
+      }
+    }
   }
 }
