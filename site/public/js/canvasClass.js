@@ -4,22 +4,22 @@ export default class Grid {
   grid = [];
   rows;
   cols;
-  count;
 
-  constructor(count) {
-    this.rows = count;
-    this.cols = count;
-    this.gridGenerator();
+  constructor(rows, cols) {
+    this.cols = cols;
+    this.rows = rows;
+    this.gridGenerator(cols, rows);
   }
 
-  gridGenerator() {
-    for (let i = 0; i < this.rows; i++) {
+  gridGenerator(cols, rows) {
+    for (let i = 0; i < rows; i++) {
       this.grid[i] = [];
 
-      for (let j = 0; j < this.cols; j++) {
+      for (let j = 0; j < cols; j++) {
         this.grid[i][j] = [];
       }
     }
+
     return this.grid;
   }
 
