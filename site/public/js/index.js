@@ -8,8 +8,8 @@ const resolution = 20;
 const cols = ctx.canvas.width / resolution;
 const rows = ctx.canvas.width / resolution;
 
-const grid = new Game(cols, rows);
-const cell = new Cell(resolution);
-
-grid.generateStateCells(cell);
-grid.drawCellsOnCanvas(ctx, cell.cellSize);
+window.onload = () => {
+  const game = new Game(cols, rows, resolution);
+  const cell = new Cell(resolution);
+  game.gameInit(cell, ctx, cell.cellSize);
+};
