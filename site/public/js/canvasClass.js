@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 
 export default class Grid {
-  multiDimentionalArray = [];
+  grid = [];
   rows;
   cols;
   count;
@@ -14,17 +14,17 @@ export default class Grid {
 
   gridGenerator() {
     for (let i = 0; i < this.rows; i++) {
-      this.multiDimentionalArray[i] = [];
+      this.grid[i] = [];
 
       for (let j = 0; j < this.cols; j++) {
-        this.multiDimentionalArray[i][j] = [];
+        this.grid[i][j] = [];
       }
     }
-    return this.multiDimentionalArray;
+    return this.grid;
   }
 
   generateStateCells(cell) {
-    const gridCell = this.multiDimentionalArray;
+    const gridCell = this.grid;
 
     for (let i = 0; i < gridCell.length; i++) {
       for (let j = 0; j < gridCell[i].length; j++) {
@@ -35,7 +35,7 @@ export default class Grid {
   }
 
   drawCellsOnCanvas(ctx, cellSize) {
-    const grid = this.multiDimentionalArray;
+    const { grid } = this;
 
     if (ctx) {
       grid.forEach((row, x) => {
