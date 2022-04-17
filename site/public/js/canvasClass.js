@@ -19,8 +19,6 @@ export default class Game {
         this.grid[i][j] = [];
       }
     }
-
-    return this.grid;
   }
 
   generateStateCells(cell) {
@@ -52,5 +50,10 @@ export default class Game {
         });
       });
     }
+  }
+
+  gameInit(cell, ctx, cellSize) {
+    this.generateStateCells(cell);
+    this.drawCellsOnCanvas(ctx, cellSize);
   }
 }
