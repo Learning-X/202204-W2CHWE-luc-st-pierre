@@ -33,8 +33,7 @@ export default class Game {
 
   update() {
     // Trying some test
-    const test = this.nextGeneration();
-    return test;
+    return this.nextGeneration();
   }
 
   nextGeneration(cols, rows, ctx, resolution) {

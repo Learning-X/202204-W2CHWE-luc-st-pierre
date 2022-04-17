@@ -7,8 +7,6 @@ window.onload = () => {
   const cols = ctx.canvas.width / resolution;
   const rows = ctx.canvas.height / resolution;
 
-  // return new Game(rows, cols, ctx, resolution);
-
   const game = new Game(rows, cols, ctx, resolution);
   game.gameInit(rows, cols, ctx, resolution);
 
