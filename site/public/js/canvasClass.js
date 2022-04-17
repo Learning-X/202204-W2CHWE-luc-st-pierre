@@ -8,10 +8,10 @@ export default class Grid {
   constructor(rows, cols) {
     this.cols = cols;
     this.rows = rows;
-    this.gridGenerator(cols, rows);
+    this.populateGrid(cols, rows);
   }
 
-  gridGenerator(cols, rows) {
+  populateGrid(cols, rows) {
     for (let i = 0; i < rows; i++) {
       this.grid[i] = [];
 
