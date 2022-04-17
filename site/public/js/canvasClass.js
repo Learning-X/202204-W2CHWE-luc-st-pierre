@@ -7,35 +7,24 @@ export default class Game {
   rows;
   cols;
   cell;
+  ctx;
   resolution;
 
-  constructor(rows, cols) {
+  constructor(rows, cols, ctx, resolution) {
     this.rows = rows;
     this.cols = cols;
-    // this.cell = new Cell(resolution);
-    this.populateGrid(cols, rows);
+
+    this.populateGrid(cols, rows, ctx, resolution);
   }
 
-  populateGrid(cols, rows) {
+  populateGrid(cols, rows, ctx, resolution) {
     for (let i = 0; i < rows; i++) {
       this.grid[i] = [];
 
       for (let j = 0; j < cols; j++) {
-        this.grid[i][j] = [];
-      }
-    }
-  }
-
-  generateStateCells(ctx, resolution) {
-    for (let i = 0; i < this.rows; i++) {
-      for (let j = 0; j < this.cols; j++) {
         this.grid[i][j] = new Cell(ctx, resolution, j, i);
       }
     }
     return this.grid;
-  }
-
-  gameInit(ctx, resolution) {
-    this.generateStateCells(ctx, resolution);
   }
 }
