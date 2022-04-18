@@ -7,7 +7,7 @@
     "watch": "sass site/src/sass/style.scss site/public/css/style.css --watch",
     "compile": "sass site/src/sass/style.scss site/public/css/style.css",
     "test": "jest --verbose",
-    "jestwatch": "jest --watchall --verbose",
+    "jestwatch": "jest --watchAll --verbose",
     "prepare": "husky install"
   },
   "keywords": [],
