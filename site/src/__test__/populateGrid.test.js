@@ -1,4 +1,4 @@
-import { populateGrid, Game } from "../../public/js/canvasClass";
+import Game from "../../public/js/canvasClass";
 
 describe("Given a populateGrid function", () => {
   describe("When it receives 20, 20, CanvasRenderingContext2D, 10", () => {
